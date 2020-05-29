@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ScoreDisplay = document.querySelector('#score')
   const StartBtn = document.querySelector('#start-button')
   const width = 10
-  //
+  // ryan is trash
   // The Tetrominoes
   const lTetromino = [
     [1, width+1, width*2+1, 2],
