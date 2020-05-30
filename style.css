@@ -8,7 +8,7 @@
   height: 400px;
   display: flex;
   flex-wrap: wrap;
-  background-color: yellow;
+  background-color: black
 }
 
 .grid div {
@@ -17,17 +17,18 @@
 }
 
 .tetromino {
-  background-color: darkblue;
+  background-image: url('http://www.aniakubow.com/Tetris/images/blue_block.png');
 }
 
 
 .mini-grid {
-  margin-left: 50px;
+  margin-left: 25px;
   width: 80px;
   height: 80px;
   display: flex;
   flex-wrap: wrap;
-  background-color: yellow
+
+  background-color: black
 }
 
 .mini-grid div {
