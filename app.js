@@ -81,22 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // make the tetrominoes move down every second
-  // timerId = setInterval(moveDown, 1000)
-
-  // assign functions to keyCodes
-  function control(e) {
-    if(e.keyCode === 37) {
-      moveLeft()
-    } else if (e.keyCode === 38) {
-      rotate()
-    } else if (e.keyCode === 39) {
-      moveRight()
-    } else if (e.keyCode === 40) {
-      moveDown()
+  // assign key functions
+  document.onkeydown = function (e) {
+    switch (e.key) {
+      case 'ArrowUp':
+        rotate()
+        break;
+      case 'ArrowDown':
+        moveDown()
+        break;
+      case 'ArrowLeft':
+        moveLeft()
+        break;
+      case 'ArrowRight':
+        moveRight()
     }
-  }
-  document.addEventListener('keyup', control)
+  };
 
   // move down function
   function moveDown() {
@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw()
       displayShape()
       addScore()
+      gameOver()
     }
   }
 
@@ -161,9 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
     P = P || currentPosition
     if ((P+1) % width < 4) {
       if (isAtRight()){
-         currentPosition += 1
-         checkRotatedPosition(P)
-         }
+        currentPosition += 1
+        checkRotatedPosition(P)
+      }
      }
      else if (P % width > 5) {
        if (isAtLeft()){
@@ -173,17 +174,17 @@ document.addEventListener('DOMContentLoaded', () => {
      }
    }
 
-   //rotate the tetromino
-   function rotate() {
-     undraw()
-     currentRotation ++
-     if(currentRotation === current.length) {
-       currentRotation = 0
-     }
-     current = theTetrominoes[random][currentRotation]
-     checkRotatedPosition()
-     draw()
-   }
+  // rotate the tetromino
+  function rotate() {
+    undraw()
+    currentRotation ++
+    if(currentRotation === current.length) {
+      currentRotation = 0
+    }
+    current = theTetrominoes[random][currentRotation]
+    checkRotatedPosition()
+    draw()
+  }
 
   // show up next tetromino in mini-grid display
   const displaySquares = document.querySelectorAll('.mini-grid div')
@@ -225,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  //add score
+  // add score
   function addScore() {
     for (let i = 0; i < 199; i +=width) {
       const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
@@ -245,9 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
-
-
+  // game over
+  function gameOver() {
+    if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+      scoreDisplay.innerHTML = ' Game Over'
+      clearInterval(timerId)
+    }
+  }
 
 })
