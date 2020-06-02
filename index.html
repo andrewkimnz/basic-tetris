@@ -1,14 +1,31 @@
 <!<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="icon" href="https://i.imgur.com/81ZdofU.png">
     <meta charset="utf-8">
     <script src="app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="style.css"></link>
     <title>Basic Tetris</title>
+    <style>
+        body {
+          background: cornflowerblue;
+          text-align: center;
+        }
+    </style>
+
+    <style>
+    .center {
+      text-align: center
+    }
+    </style>
+
   </head>
   <body>
-    <h3 style="font-family:verdana">Score:<span id="score">0</span></h3>
-    <button id="start-button">Start/Pause</button>
+    <h3 class="center" style="font-family:verdana">Score:<span id="score">0</span></h3>
+
+    <div class="wrapper">
+      <button id="start-button">Start/Pause</button>
+    </div>
 
   <div class="container">
   <div class="grid">

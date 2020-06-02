@@ -7,6 +7,11 @@
   height: 400px;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
+  z-index: 15;
+  top: 25%;
+  left: 53.3%;
+  margin: -100px 0 0 -150px;
   background-color: black
 }
 
@@ -14,9 +19,8 @@
   height: 20px;
   width: 20px;
 }
-
 .tetromino {
-  background-image: url('http://www.aniakubow.com/Tetris/images/blue_block.png');
+  background-color: aqua
 }
 
 
@@ -26,11 +30,25 @@
   height: 80px;
   display: flex;
   flex-wrap: wrap;
-
+  position: absolute;
+  z-index: 15;
+  top: 25%;
+  left: 47.3%;
+  margin: -100px 0 0 -150px;
   background-color: black
 }
 
 .mini-grid div {
   height: 20px;
   width: 20px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    left: 50.1%,
 }
